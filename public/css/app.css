@@ -22216,6 +22216,46 @@ video {
   }
 }
 
+@-webkit-keyframes btnToggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes btnToggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes entering {
+  from {
+    transform: opacity-0 scale-95;
+  }
+
+  to {
+    transform: opacity-100 scale-100;
+  }
+}
+
+@keyframes entering {
+  from {
+    transform: opacity-0 scale-95;
+  }
+
+  to {
+    transform: opacity-100 scale-100;
+  }
+}
+
 .animate-none {
   -webkit-animation: none;
           animation: none;
@@ -22239,6 +22279,21 @@ video {
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
+}
+
+.animate-btnToggle {
+  -webkit-animation: spin 0.5s;
+          animation: spin 0.5s;
+}
+
+.animate-entering {
+  -webkit-animation: transition ease-out duration-100;
+          animation: transition ease-out duration-100;
+}
+
+.animate-leaving {
+  -webkit-animation: transition ease-in duration-75;
+          animation: transition ease-in duration-75;
 }
 
 @media (min-width: 640px) {
@@ -43825,6 +43880,21 @@ video {
   .sm\:animate-bounce {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
+  }
+
+  .sm\:animate-btnToggle {
+    -webkit-animation: spin 0.5s;
+            animation: spin 0.5s;
+  }
+
+  .sm\:animate-entering {
+    -webkit-animation: transition ease-out duration-100;
+            animation: transition ease-out duration-100;
+  }
+
+  .sm\:animate-leaving {
+    -webkit-animation: transition ease-in duration-75;
+            animation: transition ease-in duration-75;
   }
 }
 
@@ -65413,6 +65483,21 @@ video {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
   }
+
+  .md\:animate-btnToggle {
+    -webkit-animation: spin 0.5s;
+            animation: spin 0.5s;
+  }
+
+  .md\:animate-entering {
+    -webkit-animation: transition ease-out duration-100;
+            animation: transition ease-out duration-100;
+  }
+
+  .md\:animate-leaving {
+    -webkit-animation: transition ease-in duration-75;
+            animation: transition ease-in duration-75;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -87000,6 +87085,21 @@ video {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
   }
+
+  .lg\:animate-btnToggle {
+    -webkit-animation: spin 0.5s;
+            animation: spin 0.5s;
+  }
+
+  .lg\:animate-entering {
+    -webkit-animation: transition ease-out duration-100;
+            animation: transition ease-out duration-100;
+  }
+
+  .lg\:animate-leaving {
+    -webkit-animation: transition ease-in duration-75;
+            animation: transition ease-in duration-75;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -108586,5 +108686,20 @@ video {
   .xl\:animate-bounce {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
+  }
+
+  .xl\:animate-btnToggle {
+    -webkit-animation: spin 0.5s;
+            animation: spin 0.5s;
+  }
+
+  .xl\:animate-entering {
+    -webkit-animation: transition ease-out duration-100;
+            animation: transition ease-out duration-100;
+  }
+
+  .xl\:animate-leaving {
+    -webkit-animation: transition ease-in duration-75;
+            animation: transition ease-in duration-75;
   }
 }
