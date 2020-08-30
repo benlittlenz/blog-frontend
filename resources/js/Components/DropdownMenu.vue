@@ -9,12 +9,18 @@
         >
         <div 
             v-if="state"
-            class="absolute left-0 mt-2 w-56 rounded-md shadow-lg"
+            class="absolute right-0 mt-2 w-56 rounded-md shadow-lg z-30"
             
             >
                 <div class="rounded-md bg-white shadow-xs">
                     <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                            <svg 
+                                viewBox="0 0 20 20" 
+                                fill="currentColor" 
+                                class="folder-open mr-3 w-5 h-5 text-gray-400">
+                                <path fillRule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clipRule="evenodd" /><path d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
+                            </svg>
                             Details
                         </a>
                         <a href="#" class="flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">

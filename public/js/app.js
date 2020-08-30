@@ -15031,15 +15031,21 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./Table": [
+		"./resources/js/Pages/Table.vue",
+		1
+	],
+	"./Table.vue": [
+		"./resources/js/Pages/Table.vue",
+		1
+	],
 	"./Welcome": [
 		"./resources/js/Pages/Welcome.vue",
-		0,
-		1
+		0
 	],
 	"./Welcome.vue": [
 		"./resources/js/Pages/Welcome.vue",
-		0,
-		1
+		0
 	]
 };
 function webpackAsyncContext(req) {
@@ -15052,7 +15058,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+	return __webpack_require__.e(ids[1]).then(function() {
 		return __webpack_require__(id);
 	});
 }
