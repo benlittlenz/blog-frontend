@@ -25,6 +25,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -33,6 +70,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       selectedCompany: "",
+      open: false,
       customers: [{
         company: "Textron",
         name: "gfgfd"
@@ -69,6 +107,13 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onCompanySelect: function onCompanySelect(value) {
       this.selectedCompany = value.company;
+      this.open = false;
+    },
+    closeDropdown: function closeDropdown() {
+      this.open = false;
+    },
+    openDropdown: function openDropdown() {
+      this.open = true;
     }
   }
 });
@@ -161,62 +206,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SelectBox",
   props: {
     data: Array,
     value: String,
-    type: String
+    state: {
+      type: Boolean,
+      require: true,
+      "default": false
+    }
   },
   data: function data() {
     return {
-      isOpen: false
+      isOpen: false,
+      company: ''
     };
   },
   methods: {
     isSelected: function isSelected(value) {
       //console.log(value)
-      return this.value === value;
-    },
-    closeDropdown: function closeDropdown() {
-      this.isOpen = false;
-    },
-    openDropdown: function openDropdown() {
-      this.isOpen = true;
+      return this.company === value;
     },
     select: function select(value) {
       console.log(value);
@@ -270,10 +280,86 @@ var render = function() {
     _c("div", { staticClass: "flex-1 px-1" }, [
       _c(
         "div",
-        {},
         [
+          _c(
+            "label",
+            {
+              staticClass: "block text-sm leading-5 font-medium text-gray-700",
+              attrs: { id: "listbox-label" }
+            },
+            [_vm._t("SelectLabel")],
+            2
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "relative" }, [
+            _c(
+              "span",
+              { staticClass: "inline-block w-full rounded-md shadow-sm" },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "cursor-pointer relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5",
+                    attrs: {
+                      type: "button",
+                      "aria-haspopup": "listbox",
+                      "aria-expanded": "true",
+                      "aria-labelledby": "listbox-label"
+                    },
+                    on: { click: _vm.openDropdown }
+                  },
+                  [
+                    _c("div", { staticClass: "flex items-center space-x-3" }, [
+                      _vm.selectedCompany
+                        ? _c("span", { staticClass: "block truncate" }, [
+                            _vm._v(_vm._s(_vm.selectedCompany))
+                          ])
+                        : _c(
+                            "span",
+                            { staticClass: "block truncate text-gray-500" },
+                            [_vm._v("Type or click to select an item")]
+                          )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-5 w-5 text-gray-400",
+                            attrs: {
+                              viewBox: "0 0 20 20",
+                              fill: "none",
+                              stroke: "currentColor"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d: "M7 7l3-3 3 3m0 6l-3 3-3-3",
+                                "stroke-width": "1.5",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
           _c("SelectBox", {
-            attrs: { type: "company", data: _vm.customers },
+            attrs: { type: "company", data: _vm.customers, state: _vm.open },
             on: { valueSelect: _vm.onCompanySelect },
             model: {
               value: _vm.selectedCompany,
@@ -311,77 +397,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "space-y-1" }, [
-    _c(
-      "label",
-      {
-        staticClass: "block text-sm leading-5 font-medium text-gray-700",
-        attrs: { id: "listbox-label" }
-      },
-      [_vm._t("SelectLabel")],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "relative" }, [
-      _c("span", { staticClass: "inline-block w-full rounded-md shadow-sm" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "cursor-pointer relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition ease-in-out duration-150 sm:text-sm sm:leading-5",
-            attrs: {
-              type: "button",
-              "aria-haspopup": "listbox",
-              "aria-expanded": "true",
-              "aria-labelledby": "listbox-label"
-            },
-            on: { click: _vm.openDropdown }
-          },
-          [
-            _c("div", { staticClass: "flex items-center space-x-3" }, [
-              _vm.value
-                ? _c("span", { staticClass: "block truncate" }, [
-                    _vm._v(_vm._s(_vm.value))
-                  ])
-                : _c("span", { staticClass: "block truncate text-gray-500" }, [
-                    _vm._v("Type or click to select an item")
-                  ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                staticClass:
-                  "absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-5 w-5 text-gray-400",
-                    attrs: {
-                      viewBox: "0 0 20 20",
-                      fill: "none",
-                      stroke: "currentColor"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d: "M7 7l3-3 3 3m0 6l-3 3-3-3",
-                        "stroke-width": "1.5",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    })
-                  ]
-                )
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
+  return _c(
+    "transition",
+    {
+      attrs: {
+        "enter-active-class": "transition ease-in duration-200",
+        "leave-active-class": "transition ease-out duration-200",
+        "enter-class": "opacity-0 scale-70",
+        "enter-to-class": "opacity-100 scale-100",
+        "leave-class": "opacity-100 scale-100",
+        "leave-to-class": "opacity-0 scale-70"
+      }
+    },
+    [
       _c(
         "div",
         {
@@ -389,12 +417,11 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm.isOpen,
-              expression: "isOpen"
+              value: _vm.state,
+              expression: "state"
             }
           ],
-          staticClass:
-            "absolute mt-1 w-full rounded-md bg-white shadow-lg h-64 w-64"
+          staticClass: "absolute mt-1 rounded-md bg-white shadow-lg h-64 w-64"
         },
         [
           _c(
@@ -489,8 +516,8 @@ var render = function() {
                 {
                   name: "show",
                   rawName: "v-show",
-                  value: _vm.isOpen,
-                  expression: "isOpen"
+                  value: _vm.state,
+                  expression: "state"
                 }
               ],
               attrs: { slot: "afterList" },
@@ -530,7 +557,7 @@ var render = function() {
                           })
                         ]
                       ),
-                      _vm._v("\n            Add Customer\n          ")
+                      _vm._v("\n          Add Customer\n        ")
                     ]
                   )
                 ]
@@ -539,8 +566,8 @@ var render = function() {
           )
         ]
       )
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
