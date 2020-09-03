@@ -15,9 +15,7 @@
         >
           <div class="flex items-center space-x-3">
             <span v-if="value" class="block truncate">{{ value }}</span>
-            <span v-else class="block truncate text-gray-500">
-                Type or click to select an item
-            </span>
+            <span v-else class="block truncate text-gray-500">Type or click to select an item</span>
           </div>
           <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
             <svg
@@ -82,13 +80,20 @@
               </svg>
             </span>
           </li>
-          
+
           <!-- More options... -->
         </ul>
         <div v-show="isOpen" slot="afterList">
-          <button type="button" class="flex justify-center align-center w-full outline-none px-2 py-3 border-none bg-pink-500 text-white">
+          <button
+            type="button"
+            class="flex justify-center align-center w-full outline-none px-2 py-3 border-none bg-pink-500 text-white"
+          >
             <a href="#" class="font-semibold flex items-center text-sm leading-5 text-white">
-              <svg viewBox="0 0 20 20" fill="currentColor" class="plus-circle mr-3 h-5 w-5 text-white">
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="plus-circle mr-3 h-5 w-5 text-white"
+              >
                 <path
                   fill-rule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
@@ -129,6 +134,7 @@ export default {
       this.isOpen = true;
     },
     select(value) {
+      console.log(value);
       this.isOpen = false;
       this.$emit("valueSelect", value);
     }
@@ -137,5 +143,4 @@ export default {
 </script>
 
 <style>
-
 </style>

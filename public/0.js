@@ -32,38 +32,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      selectedCompany: "",
       customers: [{
         company: "Textron",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Centene",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Huntsman",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Wynn Resorts",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Entergy",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Mondelez International",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Realogy Holdings",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Stryker",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Builders FirstSource",
-        name: 'gfgfd'
+        name: "gfgfd"
       }, {
         company: "Marathon Petroleum",
-        name: 'gfgfd'
+        name: "gfgfd"
       }]
     };
+  },
+  methods: {
+    onCompanySelect: function onCompanySelect(value) {
+      this.selectedCompany = value.company;
+    }
   }
 });
 
@@ -78,6 +84,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -208,6 +219,7 @@ __webpack_require__.r(__webpack_exports__);
       this.isOpen = true;
     },
     select: function select(value) {
+      console.log(value);
       this.isOpen = false;
       this.$emit("valueSelect", value);
     }
@@ -262,12 +274,13 @@ var render = function() {
         [
           _c("SelectBox", {
             attrs: { type: "company", data: _vm.customers },
+            on: { valueSelect: _vm.onCompanySelect },
             model: {
-              value: _vm.selectedValue,
+              value: _vm.selectedCompany,
               callback: function($$v) {
-                _vm.selectedValue = $$v
+                _vm.selectedCompany = $$v
               },
-              expression: "selectedValue"
+              expression: "selectedCompany"
             }
           })
         ],
@@ -331,9 +344,7 @@ var render = function() {
                     _vm._v(_vm._s(_vm.value))
                   ])
                 : _c("span", { staticClass: "block truncate text-gray-500" }, [
-                    _vm._v(
-                      "\n              Type or click to select an item\n          "
-                    )
+                    _vm._v("Type or click to select an item")
                   ])
             ]),
             _vm._v(" "),
