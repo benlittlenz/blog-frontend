@@ -1,12 +1,15 @@
 <template>
-    <CustomerSelect />
+    <!-- <CustomerSelect /> -->
+    <Modal />
 </template>
 
 <script>
-import CustomerSelect from "../Components/CustomerSelect";
+//import CustomerSelect from "../Components/CustomerSelect";
+import Modal from "../Components/Modal";
 export default {
   components: {
-    CustomerSelect
+    //CustomerSelect
+    Modal
   },
 };
 </script>
