@@ -10,20 +10,14 @@
       <div
         class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
         role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-headline"
       >
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="sm:flex sm:items-start">
+          <div class="sm:flex sm:items-start border-b border-gray-200">
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-              <h3
-                class="text-lg leading-6 font-medium text-gray-900"
-                id="modal-headline"
-              >Create New Customer</h3>
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Create New Customer</h3>
               <div>
                 <div class="sm:hidden">
                   <select
-                    aria-label="Selected tab"
                     class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5 transition ease-in-out duration-150"
                   >
                     <option>Basic Info</option>
@@ -54,10 +48,10 @@
 
           <div v-if="selected === 'Basic Info'">
             <div class="mt-4">
-              <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Company</label>
+              <label for="company" class="block text-sm font-medium leading-5 text-gray-700">Company</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <input
-                  id="email"
+                  id="company"
                   class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                   placeholder="Absatronics"
                 />
@@ -66,12 +60,12 @@
 
             <div class="mt-4">
               <label
-                for="email"
+                for="contact"
                 class="block text-sm font-medium leading-5 text-gray-700"
               >Contact Name</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <input
-                  id="email"
+                  id="contact"
                   class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                   placeholder="Joe Doe"
                 />
@@ -79,10 +73,10 @@
             </div>
 
             <div class="mt-4">
-              <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Contact #</label>
+              <label for="phone" class="block text-sm font-medium leading-5 text-gray-700">Contact #</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <input
-                  id="email"
+                  id="phone"
                   class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                   placeholder="(1800) 584 5585"
                 />
@@ -103,22 +97,28 @@
 
           <div v-else>
             <div class="mt-4">
-              <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Street 1</label>
+              <label
+                for="street1"
+                class="block text-sm font-medium leading-5 text-gray-700"
+              >Street 1</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <input
-                  id="email"
-                  class="form-input block w-full py-2 pl-2  sm:text-sm sm:leading-5"
+                  id="street1"
+                  class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                   placeholder="123 Fake St."
                 />
               </div>
             </div>
 
             <div class="mt-4">
-              <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Street 2</label>
+              <label
+                for="street2"
+                class="block text-sm font-medium leading-5 text-gray-700"
+              >Street 2</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <input
-                  id="email"
-                  class="form-input block w-full py-2 pl-2  sm:text-sm sm:leading-5"
+                  id="street2"
+                  class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                   placeholder="Apartment #123"
                 />
               </div>
@@ -127,11 +127,11 @@
             <div class="flex items-center">
               <div class="w-5/6 mr-2">
                 <div class="mt-4">
-                  <label for="email" class="block text-sm font-medium leading-5 text-gray-700">City</label>
+                  <label for="city" class="block text-sm font-medium leading-5 text-gray-700">City</label>
                   <div class="mt-1 relative rounded-md shadow-sm">
                     <input
-                      id="email"
-                      class="form-input block w-full py-2 pl-2  sm:text-sm sm:leading-5"
+                      id="city"
+                      class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                       placeholder="Sydney"
                     />
                   </div>
@@ -140,11 +140,11 @@
 
               <div class="w-5/6 ml-2">
                 <div class="mt-4">
-                  <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Zip</label>
+                  <label for="zip" class="block text-sm font-medium leading-5 text-gray-700">Zip</label>
                   <div class="mt-1 relative rounded-md shadow-sm">
                     <input
                       id="zip"
-                      class="form-input block w-full py-2 pl-2  sm:text-sm sm:leading-5"
+                      class="form-input block w-full py-2 pl-2 sm:text-sm sm:leading-5"
                       placeholder="1038"
                     />
                   </div>
@@ -154,15 +154,16 @@
           </div>
         </div>
 
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <div class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
             <button
               type="button"
-              class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+              class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
             >Create Customer</button>
           </span>
           <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
             <button
+              @click="$emit('close')"
               type="button"
               class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
             >Cancel</button>

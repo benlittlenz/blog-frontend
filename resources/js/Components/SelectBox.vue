@@ -54,6 +54,7 @@
         <button
           type="button"
           class="flex justify-center align-center w-full outline-none px-2 py-3 border-none bg-pink-500 text-white"
+          @click="toggle(true)"
         >
           <a href="#" class="font-semibold flex items-center text-sm leading-5 text-white">
             <svg
@@ -88,9 +89,11 @@ export default {
       default: false
     }
   },
+
   data() {
     return {
       isOpen: false,
+      modalOpen: false,
       company: ''
     };
   },
@@ -104,6 +107,10 @@ export default {
       console.log(value);
       this.isOpen = false;
       this.$emit("valueSelect", value);
+    },
+
+    toggle(value) {
+      this.$emit('openModal', value)
     }
   }
 };
