@@ -10,7 +10,6 @@
         <div 
             v-if="state"
             class="absolute right-0 mt-2 w-56 rounded-md shadow-lg z-30"
-            
             >
                 <div class="rounded-md bg-white shadow-xs">
                     <div class="py-1">
@@ -68,22 +67,6 @@ export default {
             type: Boolean,
             require: true,
             default: false
-        }
-    },
-
-    mounted() {
-        this.$nextTick(() => {
-            this.setDropdownPosition()
-        })
-    },
-
-    methods: {
-        setDropdownPosition() {
-            // let rect = this.$refs.dropdownItems.getBoundingClientRect()
-            // let offsetPos = rect.width - this.$el.offsetWidth
-            // let itemPos = rect.right + rect.width + offsetPos
-
-            console.log(this.$refs)
         }
     }
 }

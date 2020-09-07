@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class>
     <div class="flex mx-auto mt-2 w-64 rounded-md">
       <div class="flex-1 px-1">
         <div>
@@ -19,7 +19,7 @@
               >
                 <div class="flex items-center space-x-3">
                   <span v-if="selectedCompany" class="block truncate">{{ selectedCompany }}</span>
-                  <span v-else class="block truncate text-gray-500">Type or click to select an item</span>
+                  <span v-else class="block truncate text-gray-500">Click to select a customer</span>
                 </div>
                 <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <svg
@@ -41,8 +41,8 @@
           </div>
           <SelectBox
             type="company"
-            :data="customers"
-            :state="open"
+            :companies="customers"
+            :state="isListOpen"
             v-model="selectedCompany"
             v-on:valueSelect="onCompanySelect"
             v-on:openModal="openModal"
@@ -51,9 +51,7 @@
       </div>
     </div>
     <div v-if="modalOpen">
-      <Modal 
-        @close="modalOpen = false"
-      />
+      <Modal @close="modalOpen = false" />
     </div>
   </div>
 </template>
@@ -71,7 +69,7 @@ export default {
   data() {
     return {
       selectedCompany: "",
-      open: false,
+      isListOpen: false,
       modalOpen: false,
       customers: [
         { company: "Textron", name: "gfgfd" },
@@ -88,25 +86,41 @@ export default {
     };
   },
 
+  created() {
+    window.addEventListener("click", this.close);
+    window.addEventListener("keyup", this.close);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("click", this.close);
+    window.removeEventListener("keyup", this.close);
+  },
+
   methods: {
     onCompanySelect(value) {
       this.selectedCompany = value.company;
-      this.open = false;
+      this.isListOpen = false;
     },
 
     openModal(value) {
-      console.log(value)
-      this.open = false;
+      //console.log(value);
+      this.isListOpen = false;
       this.modalOpen = true;
-      console.log(this.modalOpen)
+      //console.log(this.modalOpen);
     },
 
     closeDropdown() {
-      this.open = false;
+      this.isListOpen = false;
     },
 
     openDropdown() {
-      this.open = true;
+      this.isListOpen = true;
+    },
+
+    close(event) {
+      if (!this.$el.contains(event.target) || event.keyCode === 27) {
+        this.isListOpen = false;
+      }
     }
   }
 };

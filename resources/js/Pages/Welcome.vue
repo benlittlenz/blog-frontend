@@ -1,15 +1,14 @@
 <template>
-    <CustomerSelect />
-    <!-- <Table /> -->
+  <Table />
 </template>
 
 <script>
-import CustomerSelect from "../Components/CustomerSelect";
-import Table from "../Components/Table";
+import CustomerSelect from "../Components/Dropdown/CustomerSelect";
+import Table from "../Components/Table/Table";
 export default {
   components: {
-    CustomerSelect
-    //Table
-  },
+    CustomerSelect,
+    Table
+  }
 };
 </script>

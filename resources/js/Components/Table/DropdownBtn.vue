@@ -1,5 +1,5 @@
 <template>
-  <div class="-mt-6">
+  <div>
     <button
       class="focus:outline-none"
       :class="{'animate-btnToggle bg-primary': open === true}"
@@ -11,7 +11,7 @@
         />
       </svg>
     </button>
-    <div class :class="{'bg-red-500': open === true}"></div>
+    <!-- <div class :class="{'bg-red-500': open === true}"></div> -->
     <DropdownMenu :state="open" />
   </div>
 </template>
