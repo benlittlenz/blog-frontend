@@ -51,9 +51,15 @@
       </div>
     </div>
     <div v-if="modalOpen">
-      <Modal @close="modalOpen = false" />
+      <Modal 
+      @close="modalOpen = false"
+      @openNotification="showNotification = true"
+       />
     </div>
-    <Notification /> 
+    <div v-if="showNotification">
+      <Notification /> 
+    </div>
+    
   </div>
 </template>
 
@@ -74,6 +80,7 @@ export default {
       selectedCompany: "",
       isListOpen: false,
       modalOpen: false,
+      showNotification: false,
       customers: [
         { company: "Textron", name: "gfgfd" },
         { company: "Centene", name: "gfgfd" },
