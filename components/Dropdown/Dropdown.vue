@@ -51,15 +51,11 @@
       </div>
     </div>
     <div v-if="modalOpen">
-      <Modal 
-      @close="modalOpen = false"
-      @openNotification="showNotification = true"
-       />
+      <Modal @close="modalOpen = false" @openNotification="openNotification()" />
     </div>
     <div v-if="showNotification">
-      <Notification /> 
+      <Notification v-on:closeNotification="closeNotification" />
     </div>
-    
   </div>
 </template>
 
@@ -82,9 +78,9 @@ export default {
       modalOpen: false,
       showNotification: false,
       customers: [
-        { company: "Textron", name: "gfgfd" },
-        { company: "Centene", name: "gfgfd" },
-        { company: "Huntsman", name: "gfgfd" },
+        { company: "Textron", name: "Textron" },
+        { company: "Centene", name: "Centene" },
+        { company: "Huntsman", name: "Huntsman" },
         { company: "Wynn Resorts", name: "gfgfd" },
         { company: "Entergy", name: "gfgfd" },
         { company: "Mondelez International", name: "gfgfd" },
@@ -131,6 +127,19 @@ export default {
       if (!this.$el.contains(event.target) || event.keyCode === 27) {
         this.isListOpen = false;
       }
+    },
+
+    openNotification() {
+      this.modalOpen = false;
+      this.showNotification = true;
+
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 2000);
+    },
+
+    closeNotification() {
+      this.showNotification = false;
     }
   }
 };
