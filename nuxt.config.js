@@ -52,7 +52,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    baseURL: 'http://blog-backend.test/api',
+    headers: {
+      common: {
+        Accept: "application/json"
+      }
+    }
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
