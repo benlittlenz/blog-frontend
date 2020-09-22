@@ -32,7 +32,7 @@
             {{post.title}}
           </h3>
           <p class="mt-3 text-base leading-6 text-gray-500">
-            {{post.content.slice(0, 50)}}
+            {{post.content_preview}}
           </p>
         </a>
         <div class="mt-3">
