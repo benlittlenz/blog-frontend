@@ -37,7 +37,8 @@
         </a>
         <div class="mt-3">
           <a href="#" class="text-base leading-6 font-semibold text-indigo-600 hover:text-indigo-500 transition ease-in-out duration-150">
-            Read full story
+            <!-- <NuxtLink :to="{ name:'blog-posts', query: { id: post.id, slug: post.slug }}">Read full story</NuxtLink> -->
+            <NuxtLink :to="`/blog/posts/${post.slug}`">Read full story</NuxtLink>
           </a>
         </div>
       </div>
@@ -56,15 +57,16 @@
         posts: []
       }
     },
+
     created() {
-    const { data } = this.$axios
-      .get("/api/posts")
-      .then((res) => {
-        this.posts = res.data.posts
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },
+      const { data } = this.$axios
+        .get("/posts")
+        .then((res) => {
+          this.posts = res.data.posts
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   }
 </script>
